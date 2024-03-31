@@ -1,0 +1,31 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include<map>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    int n;
+    cin >> n;
+    int find = -1;
+    map<int,int> mp;
+    for(int i = 0;i < 2*n + 1;i++)
+    {
+        int x; cin >> x;
+        mp[x] ++;
+    }
+    for(auto it : mp)
+    {
+        if(it.second % 2 != 0) 
+        {
+            find = it.first;
+            break;
+        }
+    }
+    cout << find << endl;
+    return 0;
+}
