@@ -1,0 +1,50 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int w,h;
+    cin >> w >> h;
+    char matrix[1001][1001];
+    for(int i = 0;i < h;i++)
+    {
+        for(int j = 0;j < w;j++)
+        {
+           cin >> matrix[i][j];
+        }
+    }
+    for(int i = 0;i < h;i++)
+    {
+        for(int j = 0;j < w;j++)
+        {
+            if(matrix[i][j] == 'Y')
+            {
+                if(matrix[i+1][j-1] == 'E' && matrix[i][j-1] == 'E') matrix[i+1][j-1] = 'Y';
+                if(matrix[i+1][j+1] == 'E' && matrix[i][j+1] == 'E') matrix[i+1][j+1] = 'Y';
+                if(matrix[i+1][j] == 'E') matrix[i+1][j] = 'Y';
+            }
+           
+        }
+        
+    }
+    /*for(int i = 0;i < h;i++)
+    {
+        for(int j = 0;j < w;j++)
+        {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+        
+    }*/
+    //cout << matrix[0][2] ;
+    bool test = false;
+    for(int i = 0;i < w;i++)
+    {
+        if(matrix[h-1][i] == 'Y')
+        {
+            test = true;
+            break;
+        }
+    }
+    if(test)  cout <<"YES";
+    else cout <<"NO";
+}
